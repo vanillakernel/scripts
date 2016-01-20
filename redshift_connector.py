@@ -1,5 +1,4 @@
 #!/bin/python
-#TODO: break out name, port, ETC in to config file with password.
 import psycopg2
 import json
 
@@ -18,9 +17,7 @@ except:
 cur = conn.cursor()
 conn.set_isolation_level( psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT )
 try:
-    #cursor.execute( 'begin' )
     cur.execute("select * from reports limit 10;")
-    #cursor.execute( 'commit' )
 except:
     print "Unable to select from test database!"
 rows = cur.fetchall()
